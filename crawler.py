@@ -21,7 +21,7 @@ class RecipeCrawler:
         'duplicates': {}
     }
 
-    def __init__(self, file):
+    def __init__(self, file='data.bin'):
         self.file = file
         self.load_data()
 
@@ -43,7 +43,18 @@ class RecipeCrawler:
     @property
     def data_json(self):
         return json.dumps(self.data, indent=2)
+    
+    @property
+    def recipes(self):
+        return self.data['recipes']
 
+    @property
+    def recipes_data(self):
+        return self.data['recipes_data']
+
+    @property
+    def urls(self):
+        return self.data['urls']
 
     def add_data(self, url):
         if url in self.data['urls']:
@@ -63,6 +74,8 @@ class RecipeCrawler:
         url_data = dict(status_code=response.status_code)
         print(response.url)
         
+        links = None
+
         # If success, I need to fetch the actual recipe data
         if response.status_code == requests.codes.ok:
             try:
@@ -75,6 +88,7 @@ class RecipeCrawler:
             # Add the recipe data
             title = recipe.title()
             host = recipe.host()
+            links = recipe.links()
 
             # Construct data
             recipe_index = dict(
@@ -104,5 +118,7 @@ class RecipeCrawler:
         
         # If error, do nothing
         self.data['urls'][response.url] = url_data
+
+        return links
         
 

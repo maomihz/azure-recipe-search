@@ -1,7 +1,7 @@
 from crawler import RecipeCrawler
 from time import sleep
 
-r = RecipeCrawler('data.bin')
+r = RecipeCrawler()
 
 while True:
     try:
@@ -11,4 +11,4 @@ while True:
     url = "https://www.allrecipes.com/recipe/" + str(i)
     if r.add_data(url):
         r.dump_data()
-        sleep(2)
+        sleep(3)
