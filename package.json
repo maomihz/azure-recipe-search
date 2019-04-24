@@ -13,6 +13,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "azure-search": "0.0.21"
+    "@azure/cosmos": "^2.1.5",
+    "async": "^2.6.2",
+    "azure-search": "0.0.21",
+    "express": "^4.16.4"
   }
 }

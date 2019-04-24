@@ -48,7 +48,7 @@ var schema = {
 
 client.createIndex(schema, function (err, schema) {
     console.log(schema);
-    console.log(err.message);
+    // console.log(err.message);
 });
 
 
