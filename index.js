@@ -10,3 +10,7 @@ app.use(express.static('public'))
     
     console.log("Example app listening at http://%s:%s", host, port)
  });
+
+ //get the ingredients
+ //send to azure search
+ //show returned data
