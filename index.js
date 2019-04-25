@@ -24,11 +24,18 @@ app.get("/", function(req, res) {
 });
 
 app.get("/search", function(req, res) {
-   search(req.query.q, function(err, results) {
-      res.send(render.search({
-         results: results
-      }));
-   });
+   var query = req.query.q;
+   if (query) {
+      search(query, function(err, results) {
+         res.send(render.search({
+            results: results,
+            query: query
+         }));
+      });
+   } else {
+      res.send(render.search());
+   }
+   
 });
 
 

@@ -1,0 +1,6 @@
+form.text-center(method='GET', action='/search')
+  .form-row
+    .col-9.col-sm-10.col-xl-11
+      input#givenIngredients.form-control(type='text', name='q', value=query)
+    .col-3.col-sm-2.col-xl-1
+      button.btn.btn-search.btn-info.btn-block(type='submit') Search

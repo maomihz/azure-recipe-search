@@ -1,56 +1,13 @@
 doctype html
 html
-  head
-    script(src='/js/jquery.min.js')
-    script(src='/js/popper.min.js')
-    script(src='/js/bootstrap.min.js')
-    link(rel='stylesheet', href='/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/projectCSS.css')
+  include ./includes/head.pug
   body
     header
-      #carouselExampleIndicators.carousel.slide(data-ride='carousel')
-        ol.carousel-indicators
-          li.active(data-target='#carouselExampleIndicators', data-slide-to='0')
-          li(data-target='#carouselExampleIndicators', data-slide-to='1')
-          li(data-target='#carouselExampleIndicators', data-slide-to='2')
-        
-        .carousel-inner(role='listbox')
-          // Slide One - Set the background image for this slide in the line below
-          .carousel-item.active(style="background-image: url('slide1.jpg')")
-            .carousel-caption.d-none.d-md-block(style='background-color: rgba(0,0,0,.15)')
-              h3.display-4 Welcome to Cloud Foodies!
-              p.lead An easy place to find what to cook
-
-          
-          // Slide Two - Set the background image for this slide in the line below
-          .carousel-item(style="background-image: url('slide2.jpg')")
-            .carousel-caption.d-none.d-md-block(style='background-color: rgba(0,0,0,.15)')
-              h3.display-4 Not sure what to make?
-              p.lead Enter your ingredients below!
-
-          
-          // Slide Three - Set the background image for this slide in the line below
-          .carousel-item(style="background-image: url('slide3.jpg')")
-            .carousel-caption.d-none.d-md-block(style='background-color: rgba(0,0,0,.15)')
-              h3.display-4 Choose from thousands of recipes!
-              p.lead Retrieved from allrecipes.com
-        
-
-        a.carousel-control-prev(href='#carouselExampleIndicators', role='button', data-slide='prev')
-          span.carousel-control-prev-icon(aria-hidden='true')
-          span.sr-only Previous
-        a.carousel-control-next(href='#carouselExampleIndicators', role='button', data-slide='next')
-          span.carousel-control-next-icon(aria-hidden='true')
-          span.sr-only Next
+      include ./includes/carousel.pug
     
-    
-    // Page Content
-    section.py-5
-      center
-        .justify-content-center
+    .container.py-5
+      .text-center
           h1.font-weight-light Welcome to Cloud Foodies, an easy place to find what to cook!
           p.lead
             | Enter your ingredients below to find a recipe that uses those ingredients (separate with a comma e.g. eggs, milk, flour, sugar):
-          form(method='GET', action='/search')
-            input#givenIngredients.form-control(type='text', name='q', style='width: 50%')
-            button.btn.btn-search.btn-info(type='submit', style='margin-top: 10px') Find Recipes
+          include ./includes/searchbar.pug
