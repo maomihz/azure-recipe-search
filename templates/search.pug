@@ -33,6 +33,10 @@ html
                     li= instruction
               //- p.card-text
               //-   pre= JSON.stringify(item, null, '  ')
+              - if (item.total_time <= 0 || item.total_time >= 10000)
+                h5.my-3 Total Time: Try it Yourself!
+              - else
+                h5.my-3 Total Time: #{item.total_time} minutes
               a.btn.btn-info(href=item.url target="_blank" role="button")
                 | View Recipe
       

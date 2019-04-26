@@ -6,12 +6,13 @@ var client = AzureSearch({
 });
 
 
+module.exports = client
 
-module.exports.search = function(query, cb) {
-    var opt = {
-        search: query,
-        top: 10
-    };
-    client.search('documentdb-index', opt, cb);
-};
+// module.exports.search = function(query, cb) {
+//     var opt = {
+//         search: query,
+//         top: 10
+//     };
+//     client.search('documentdb-index', opt, cb);
+// };
 
